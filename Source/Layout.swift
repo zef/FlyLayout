@@ -35,7 +35,7 @@ struct Pin: ConstraintProvider {
         self.init(top: y, bottom: y, leading: x, trailing: x, safe: safe)
     }
 
-    func constraints(for view: UIView, referencing secondView: UIView) -> [NSLayoutConstraint] {
+    func constraints(for view: UIView, with secondView: UIView) -> [NSLayoutConstraint] {
         var constraints = [NSLayoutConstraint]()
         if let constant = top {
             let second = safe ? secondView.safeAreaLayoutGuide.topAnchor : secondView.topAnchor
@@ -66,7 +66,7 @@ struct Center: ConstraintProvider {
         self.y = y
     }
 
-    func constraints(for view: UIView, referencing secondView: UIView) -> [NSLayoutConstraint] {
+    func constraints(for view: UIView, with secondView: UIView) -> [NSLayoutConstraint] {
         var constraints = [NSLayoutConstraint]()
         if let x = x {
             constraints.append(view.centerXAnchor.constraint(equalTo: secondView.centerXAnchor, constant: x))
@@ -96,7 +96,7 @@ struct Height: ConstraintProvider {
         self.constant = constant
     }
 
-    func constraints(for view: UIView, referencing secondView: UIView) -> [NSLayoutConstraint] {
+    func constraints(for view: UIView, with secondView: UIView) -> [NSLayoutConstraint] {
         if let dimension = dimension {
             return [view.heightAnchor.constraint(equalTo: dimension, multiplier: multiplier, constant: constant)]
         } else {
@@ -123,7 +123,7 @@ struct Width: ConstraintProvider {
         self.constant = constant
     }
 
-    func constraints(for view: UIView, referencing secondView: UIView) -> [NSLayoutConstraint] {
+    func constraints(for view: UIView, with secondView: UIView) -> [NSLayoutConstraint] {
         if let dimension = dimension {
             return [view.widthAnchor.constraint(equalTo: dimension, multiplier: multiplier, constant: constant)]
         } else {
@@ -171,7 +171,7 @@ struct Connection: ConstraintProvider {
         }
     }
 
-    func constraints(for view: UIView, referencing secondView: UIView) -> [NSLayoutConstraint] {
+    func constraints(for view: UIView, with secondView: UIView) -> [NSLayoutConstraint] {
         switch anchor {
         case .x(let x):
             let viewAnchor = x.anchor(for: view)

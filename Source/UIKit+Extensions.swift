@@ -8,23 +8,6 @@
 
 import UIKit
 
-extension Array where Element == NSLayoutConstraint {
-    func activate() {
-        setActive(true)
-    }
-    func deactivate() {
-        setActive(false)
-    }
-
-    func setActive(_ isActive: Bool) {
-        if isActive {
-            NSLayoutConstraint.activate(self)
-        } else {
-            NSLayoutConstraint.deactivate(self)
-        }
-    }
-}
-
 extension UIView {
     func addSubview(_ view: UIView, autolayout: Bool) {
         addSubview(view)
@@ -39,18 +22,35 @@ extension UIView {
     @discardableResult
     func addSubview(_ view: UIView, layout layouts: [Layout]) -> [NSLayoutConstraint] {
         addSubview(view, autolayout: true)
-        return view.apply(layout: layouts, referencing: self)
+        return view.apply(layout: layouts, with: self)
     }
 
     @discardableResult
-    func apply(layout layouts: Layout..., referencing view: UIView) -> [NSLayoutConstraint] {
-        return apply(layout: layouts, referencing: view)
+    func apply(layout layouts: Layout..., with view: UIView) -> [NSLayoutConstraint] {
+        return apply(layout: layouts, with: view)
     }
 
     @discardableResult
-    func apply(layout layouts: [Layout], referencing view: UIView) -> [NSLayoutConstraint] {
+    func apply(layout layouts: [Layout], with view: UIView) -> [NSLayoutConstraint] {
         return layouts.flatMap { layout in
-            layout.apply(to: self, referencing: view)
+            layout.apply(to: self, with: view)
+        }
+    }
+}
+
+extension Array where Element == NSLayoutConstraint {
+    func activate() {
+        setActive(true)
+    }
+    func deactivate() {
+        setActive(false)
+    }
+
+    func setActive(_ isActive: Bool) {
+        if isActive {
+            NSLayoutConstraint.activate(self)
+        } else {
+            NSLayoutConstraint.deactivate(self)
         }
     }
 }

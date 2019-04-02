@@ -11,7 +11,7 @@ import Foundation
 // This is the basic building block of Layout implementations.
 // You can conform to this to provide your own Layout types.
 protocol ConstraintProvider {
-    func constraints(for view: UIView, referencing secondView: UIView) -> [NSLayoutConstraint]
+    func constraints(for view: UIView, with secondView: UIView) -> [NSLayoutConstraint]
 
     // This is implemented when used in views that refer to
     // a view other than the superview, which is used by default.
@@ -32,9 +32,9 @@ struct Layout {
     }
 
     @discardableResult
-    func apply(to view: UIView, referencing secondView: UIView) -> [NSLayoutConstraint] {
+    func apply(to view: UIView, with secondView: UIView) -> [NSLayoutConstraint] {
         let referenceView = implementation.customViewReference ?? secondView
-        let constraints = implementation.constraints(for: view, referencing: referenceView)
+        let constraints = implementation.constraints(for: view, with: referenceView)
         constraints.activate()
         return constraints
     }
