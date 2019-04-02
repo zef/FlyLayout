@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		8DF46F3E224B2C0E00BEC4D1 /* FlyLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DF46F3C224B2C0E00BEC4D1 /* FlyLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8DF46F45224B2EB500BEC4D1 /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF46F44224B2EB500BEC4D1 /* Layout.swift */; };
+		8DF46F47224B2FF500BEC4D1 /* UIKit+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF46F46224B2FF500BEC4D1 /* UIKit+Extensions.swift */; };
+		8DF46F49224B339500BEC4D1 /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF46F48224B339500BEC4D1 /* Definitions.swift */; };
+		8DF46F4B224B343800BEC4D1 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF46F4A224B343800BEC4D1 /* Protocols.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -16,6 +19,9 @@
 		8DF46F3C224B2C0E00BEC4D1 /* FlyLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlyLayout.h; sourceTree = "<group>"; };
 		8DF46F3D224B2C0E00BEC4D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DF46F44224B2EB500BEC4D1 /* Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
+		8DF46F46224B2FF500BEC4D1 /* UIKit+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+Extensions.swift"; sourceTree = "<group>"; };
+		8DF46F48224B339500BEC4D1 /* Definitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Definitions.swift; sourceTree = "<group>"; };
+		8DF46F4A224B343800BEC4D1 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +57,9 @@
 				8DF46F3C224B2C0E00BEC4D1 /* FlyLayout.h */,
 				8DF46F3D224B2C0E00BEC4D1 /* Info.plist */,
 				8DF46F44224B2EB500BEC4D1 /* Layout.swift */,
+				8DF46F4A224B343800BEC4D1 /* Protocols.swift */,
+				8DF46F48224B339500BEC4D1 /* Definitions.swift */,
+				8DF46F46224B2FF500BEC4D1 /* UIKit+Extensions.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -134,7 +143,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DF46F47224B2FF500BEC4D1 /* UIKit+Extensions.swift in Sources */,
+				8DF46F49224B339500BEC4D1 /* Definitions.swift in Sources */,
 				8DF46F45224B2EB500BEC4D1 /* Layout.swift in Sources */,
+				8DF46F4B224B343800BEC4D1 /* Protocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
