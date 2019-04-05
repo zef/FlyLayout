@@ -1,6 +1,6 @@
 # FlyLayout
 
-A Swift syntax for AutoLayout. Expressive, terse, and clear.
+A Swift syntax for Auto Layout. Expressive, terse, and clear.
 
 Add a subview, filling it entirely.
 ```Swift
@@ -11,8 +11,8 @@ view.addSubview(label, layout: .fill)
 
 Practical:
 
-- Just AutoLayout. The intention is to make it easy to use AutoLayout without introducing additional concepts.
-As part of this goal, the API is designed to avoid the use of internally-defined types that wrap existing AutoLayout types.
+- Just Auto Layout. The intention is to make it easy to use Auto Layout without introducing additional concepts.
+As part of this goal, the API is designed to avoid the use of internally-defined types that wrap existing Auto Layout types.
 
 - Extensible. Apps can define their own Layouts that suit their own use.
 
