@@ -11,27 +11,27 @@ import UIKit
 public extension UIView {
     var autoLayout: Bool {
         get { return translatesAutoresizingMaskIntoConstraints }
-        set { translatesAutoresizingMaskIntoConstraints = !newValue }
+        set { translatesAutoresizingMaskIntoConstraints = !autoLayout }
     }
 
     func addSubview(_ view: UIView, autoLayout: Bool) {
+        view.autoLayout = autoLayout
         addSubview(view)
-        self.autoLayout = autoLayout
     }
 
     func insertSubview(_ view: UIView, at index: Int, autoLayout: Bool) {
+        view.autoLayout = autoLayout
         insertSubview(view, at: index)
-        self.autoLayout = autoLayout
     }
 
     func insertSubview(_ view: UIView, aboveSubview siblingSubview: UIView, autoLayout: Bool) {
+        view.autoLayout = autoLayout
         insertSubview(view, aboveSubview: siblingSubview)
-        self.autoLayout = autoLayout
     }
 
     func insertSubview(_ view: UIView, belowSubview siblingSubview: UIView, autoLayout: Bool) {
+        view.autoLayout = autoLayout
         insertSubview(view,  belowSubview: siblingSubview)
-        self.autoLayout = autoLayout
     }
 
 
