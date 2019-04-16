@@ -1,0 +1,27 @@
+PODS:
+  - FlyLayout (0.1.0)
+  - Nimble (8.0.1)
+  - Quick (2.0.0)
+
+DEPENDENCIES:
+  - FlyLayout (from `../`)
+  - Nimble (~> 8.0.1)
+  - Quick (~> 2.0.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Nimble
+    - Quick
+
+EXTERNAL SOURCES:
+  FlyLayout:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  FlyLayout: 327fd247cc9383306d4203e78d84644659244926
+  Nimble: 45f786ae66faa9a709624227fae502db55a8bdd0
+  Quick: ce1276c7c27ba2da3cb2fd0cde053c3648b3b22d
+
+PODFILE CHECKSUM: 95e3d275ca179b33c324d73d1d09e648b1fcdf54
+
+COCOAPODS: 1.6.1

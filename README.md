@@ -1,6 +1,6 @@
 # FlyLayout
 
-A Swift syntax for Auto Layout. Expressive, terse, and clear.
+A Swift API for Auto Layout. Expressive, terse, and clear.
 
 Add a subview, filling it entirely.
 ```Swift

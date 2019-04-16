@@ -1,0 +1,6 @@
+framework module FlyLayout {
+  umbrella header "FlyLayout-umbrella.h"
+
+  export *
+  module * { export * }
+}

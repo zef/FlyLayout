@@ -1,0 +1,14 @@
+use_frameworks!
+
+target 'FlyLayout_Example' do
+  pod 'FlyLayout', :path => '../'
+
+  target 'FlyLayout_Tests' do
+    inherit! :search_paths
+
+    pod 'Quick', '~> 2.0.0'
+    pod 'Nimble', '~> 8.0.1'
+#    pod 'FBSnapshotTestCase' , '~> 2.1.4'
+#    pod 'Nimble-Snapshots' , '~> 7.0.0'
+  end
+end
