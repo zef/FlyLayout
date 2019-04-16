@@ -9,7 +9,7 @@
 import Foundation
 
 // Here we define the public interface for Layouts that are available.
-extension Layout {
+public extension Layout {
     // MARK: Dimensions
     static func height(_ height: CGFloat) -> Layout { return Layout(Height(height)) }
     static func height(equalTo dimension: NSLayoutDimension, multiplier: CGFloat = 1, constant: CGFloat = 0) -> Layout {

@@ -134,9 +134,9 @@ struct Width: ConstraintProvider {
 
 
 // provides a constraint that references a different view
-struct Connection: ConstraintProvider {
+public struct Connection: ConstraintProvider {
     let anchor: Anchor
-    let customViewReference: UIView?
+    public let customViewReference: UIView?
     let constant: CGFloat
     let mode: AnchorMode
 
@@ -150,7 +150,7 @@ struct Connection: ConstraintProvider {
         case y(YAnchor)
     }
 
-    enum YAnchor {
+    public enum YAnchor {
         case top, bottom
 
         var reverse: YAnchor {
@@ -160,7 +160,7 @@ struct Connection: ConstraintProvider {
             return self == .top ? view.topAnchor : view.bottomAnchor
         }
     }
-    enum XAnchor {
+    public enum XAnchor {
         case leading, trailing
 
         var reverse: XAnchor {
@@ -171,7 +171,7 @@ struct Connection: ConstraintProvider {
         }
     }
 
-    func constraints(for view: UIView, with secondView: UIView) -> [NSLayoutConstraint] {
+    public func constraints(for view: UIView, with secondView: UIView) -> [NSLayoutConstraint] {
         switch anchor {
         case .x(let x):
             let viewAnchor = x.anchor(for: view)

@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UIView {
+public extension UIView {
     var autoLayout: Bool {
         get { return translatesAutoresizingMaskIntoConstraints }
         set { translatesAutoresizingMaskIntoConstraints = !newValue }
