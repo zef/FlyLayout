@@ -31,7 +31,7 @@ public extension UIView {
 
     func insertSubview(_ view: UIView, belowSubview siblingSubview: UIView, autoLayout: Bool) {
         view.autoLayout = autoLayout
-        insertSubview(view,  belowSubview: siblingSubview)
+        insertSubview(view, belowSubview: siblingSubview)
     }
 
 
