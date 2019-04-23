@@ -47,24 +47,31 @@ public extension Layout {
     }
 
     // MARK: Connecting to other views
-
-    // the .join layouts will setup views in a cascading manner
-    // where .top of one view will be anchored to the .bottom of the other view
-    // and .leading will be anchored to .trailing
-    static func join(_ anchor: Connection.XAnchor, to view: UIView, by constant: CGFloat = 0) -> Layout {
-        return Layout(Connection(anchor: .x(anchor), customViewReference: view, constant: constant, mode: .opposing))
-    }
-    static func join(_ anchor: Connection.YAnchor, to view: UIView, by constant: CGFloat = 0) -> Layout {
-        return Layout(Connection(anchor: .y(anchor), customViewReference: view, constant: constant, mode: .opposing))
-    }
-
     // the .align layouts constrain views with anchors on the same side
     // .top to .top, .leading to .leading
+    // a positive constant moves the primary view away from the direction of the anchor
     static func align(_ anchor: Connection.XAnchor, to view: UIView, by constant: CGFloat = 0) -> Layout {
         return Layout(Connection(anchor: .x(anchor), customViewReference: view, constant: constant, mode: .same))
     }
     static func align(_ anchor: Connection.YAnchor, to view: UIView, by constant: CGFloat = 0) -> Layout {
         return Layout(Connection(anchor: .y(anchor), customViewReference: view, constant: constant, mode: .same))
+    }
+
+
+    // .before and .after connect views on the x axis
+    // .above and .below connect views on the y axis
+    // a positive constant increases spacing between the views
+    static func before(_ view: UIView, by constant: CGFloat = 0) -> Layout {
+        return Layout(Connection(anchor: .x(.trailing), customViewReference: view, constant: -constant, mode: .opposing))
+    }
+    static func after(_ view: UIView, by constant: CGFloat = 0) -> Layout {
+        return Layout(Connection(anchor: .x(.leading), customViewReference: view, constant: constant, mode: .opposing))
+    }
+    static func above(_ view: UIView, by constant: CGFloat = 0) -> Layout {
+        return Layout(Connection(anchor: .y(.bottom), customViewReference: view, constant: -constant, mode: .opposing))
+    }
+    static func below(_ view: UIView, by constant: CGFloat = 0) -> Layout {
+        return Layout(Connection(anchor: .y(.top), customViewReference: view, constant: constant, mode: .opposing))
     }
 }
 

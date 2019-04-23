@@ -172,16 +172,28 @@ public struct Connection: ConstraintProvider {
     }
 
     public func constraints(for view: UIView, with secondView: UIView) -> [NSLayoutConstraint] {
+        var constant = self.constant
+
         switch anchor {
         case .x(let x):
             let viewAnchor = x.anchor(for: view)
             let target = mode == .same ? x : x.reverse
             let referenceAnchor = target.anchor(for: secondView)
+
+            if mode == .same && x == .trailing {
+                constant = -constant
+            }
+
             return [viewAnchor.constraint(equalTo: referenceAnchor, constant: constant)]
         case .y(let y):
             let viewAnchor = y.anchor(for: view)
             let target = mode == .same ? y : y.reverse
             let referenceAnchor = target.anchor(for: secondView)
+
+            if mode == .same && y == .bottom {
+                constant = -constant
+            }
+
             return [viewAnchor.constraint(equalTo: referenceAnchor, constant: constant)]
         }
     }
