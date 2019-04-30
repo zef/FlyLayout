@@ -18,18 +18,28 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //        guard let view = view else { return }
+//        #colorLiteral(red: 0.10980392156862745, green: 0.23921568627450981, blue: 0.35294117647058826, alpha: 1)
+//        #colorLiteral(red: 0.8705882352941177, green: 0.4588235294117647, blue: 0.12156862745098039, alpha: 1)
+//        #colorLiteral(red: 0.2196078431372549, green: 0.6588235294117647, blue: 0.615686274509804, alpha: 1)
+//        #colorLiteral(red: 0.33725490196078434, green: 0.3803921568627451, blue: 0.7019607843137254, alpha: 1)
+//        #colorLiteral(red: 0.9215686274509803, green: 0.3215686274509804, blue: 0.5254901960784314, alpha: 1)
+//        #colorLiteral(red: 0.1843137254901961, green: 0.5254901960784314, blue: 0.5882352941176471, alpha: 1)
 
-        let a = UIView(background: #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1))
-        let b = UIView(background: #colorLiteral(red: 0.3236978054, green: 0.1063579395, blue: 0.574860394, alpha: 1))
-        let c = UIView(background: #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1))
-        let d = UIView(background: #colorLiteral(red: 0, green: 0.5898008943, blue: 1, alpha: 1))
-        let e = UIView(background: #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1))
 
-        view.addSubview(a, layout: .center, .width(180), .height(180))
-        view.addSubview(b, layout: .pin(top: 10, leading: 10, safe: true), .width(100), .height(100))
-        view.addSubview(c, layout: .pin(top: 10, trailing: 10, safe: true), .width(100), .height(100))
-        view.addSubview(d, layout: .pin(bottom: 10, leading: 10, safe: true), .width(100), .height(100))
-        view.addSubview(e, layout: .pin(bottom: 10, trailing: 10, safe: true), .width(100), .height(100))
+        let a = UIView(background: #colorLiteral(red: 0.8, green: 0.12156862745098039, blue: 0.10196078431372549, alpha: 1))
+        let b = UIView(background: #colorLiteral(red: 0.12156862745098039, green: 0.615686274509804, blue: 0.3333333333333333, alpha: 1))
+        let c = UIView(background: #colorLiteral(red: 0.4745098039215686, green: 0.2901960784313726, blue: 0.8117647058823529, alpha: 1))
+        let d = UIView(background: #colorLiteral(red: 0.15294117647058825, green: 0.4745098039215686, blue: 0.7411764705882353, alpha: 1))
+        let e = UIView(background: #colorLiteral(red: 0.9490196078431372, green: 0.8156862745098039, blue: 0.1411764705882353, alpha: 1))
+
+        Layout.toSafeAreas {
+            view.addSubview(a, layout: .center, .width(180), .height(180))
+            view.addSubview(b, layout: .pin(top: 10, leading: 10), .width(100), .height(100))
+            view.addSubview(c, layout: .pin(top: 10, trailing: 10), .width(100), .height(100))
+            view.addSubview(d, layout: .pin(bottom: 10, leading: 10), .width(100), .height(100))
+            view.addSubview(e, layout: .pin(bottom: 10, trailing: 10), .width(100), .height(100))
+        }
+        e.addSubview(UIView(background: #colorLiteral(red: 0.07058823529411765, green: 0.1568627450980392, blue: 0.22745098039215686, alpha: 1)), layout: .pin(10))
 
         let amount: CGFloat = 8
         view.addSubview(UILabel(text: "Before"), layout: .before(a, by: amount), .centerY)
@@ -37,6 +47,7 @@ class ViewController: UIViewController {
         view.addSubview(UILabel(text: "Above"), layout: .above(a, by: amount), .centerX)
         view.addSubview(UILabel(text: "Below"), layout: .below(a, by: amount), .centerX)
 
+//        view.addSubview(UILabel(text: "Leading"), layout: .align(to: a.leadingAnchor, by: amount), .centerY)
         view.addSubview(UILabel(text: "Leading"), layout: .align(.leading, to: a, by: amount), .centerY)
         view.addSubview(UILabel(text: "Trailing"), layout: .align(.trailing, to: a, by: amount), .centerY)
         view.addSubview(UILabel(text: "Top"), layout: .align(.top, to: a, by: amount), .centerX)
