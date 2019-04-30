@@ -38,4 +38,18 @@ public struct Layout {
         constraints.activate()
         return constraints
     }
+
+    public static func toSafeAreas(_ block: () -> Void) {
+        let originalValue = useSafeAreas
+        useSafeAreas = true
+        block()
+        useSafeAreas = originalValue
+    }
+
+    public static func ignoringSafeAreas(_ block: () -> Void) {
+        let originalValue = useSafeAreas
+        useSafeAreas = false
+        block()
+        useSafeAreas = originalValue
+    }
 }
