@@ -2,14 +2,61 @@
 
 A Swift API for Auto Layout. Expressive, terse, and clear.
 
+## Usage
+
 Add a subview, filling it entirely.
 ```Swift
 view.addSubview(label, layout: .fill)
 ```
 
+To provide some spacing around the subview, use `.pin`.
+```Swift
+// all sides
+view.addSubview(label, layout: .pin(10))
+
+// x and/or y (either can be omitted).
+view.addSubview(label, layout: .pin(x: 10, y: 20))
+
+// top/bottom/leading/trailing
+view.addSubview(label, layout: .pin(top: 10, leading: 20, trailing: 40))
+```
+
+Centering subviews:
+```Swift
+.center, .centerX, .centerY
+
+// or to define an offset from the center:
+.center(x: -40, y:)
+```
+
+## Advanced Usage
+
+### Safe Areas
+
+When filling and pinning to edges, Safe Areas can be respected or ignored in the following ways.
+
+Pass `safe: Bool` to layouts that support safe areas:
+```Swift
+view.addSubview(label, layout: .fill(safe: true))
+view.addSubview(label, layout: .pin(10, safe: true))
+```
+
+Perform your layout inside blocks using either `Layout.toSafeAreas` or `Layout.ignoringSafeAreas`:
+```Swift
+Layout.toSafeAreas {
+    view.addSubview(label, layout: .pin(10))
+}
+```
+
+Or, explicitly control the value of the `useSafeAreas` global, which defines your preference for the default behavior:
+```Swift
+Layout.useSafeAreas = true
+view.addSubview(label, layout: .fillY)
+```
+
 ## Design Goals
 
-Practical:
+### Practical:
 
 - Just Auto Layout. The intention is to make it easy to use Auto Layout without introducing additional concepts.
   As part of this goal, the API is designed to avoid (minimize) the use of internally-defined types that wrap existing Auto Layout types.
@@ -29,7 +76,7 @@ Practical:
   I hesitate to add things like constraint priorities as arguments, and think that in the case that priority customization is needed,
   it's easy enough to apply the constraint separately and then modify its priority. Feedback is invited here.
 
-Conceptual:
+### Conceptual:
 
 The `Layout` functions available are named in such a way as to be:
 
@@ -39,26 +86,15 @@ The `Layout` functions available are named in such a way as to be:
 
 Tradeoffs must be made between these, and I'm open to suggestions for improvement!
 
-Known tradeoffs:
+### Known Tradeoffs:
 
 - The `width` and `height` layouts are awkward when applied independently:
-
 ```Swift
 view.apply(layout: .height(30), with: view)
 ```
+
 In these cases, no second view reference is needed, so the `with` parameter does not make sense and is ignored.
 However, since other constraints do require a second view reference, I do not want to make that parameter an optional.
 
-- The `.join` function is not very intuitive. I am considering other options.
-  Perhaps a separate Layout for each side of another view?
-
-```Swift
-static func above(_ view: UIView, by constant: CGFloat) -> Layout { ... }
-static func below(_ view: UIView, by constant: CGFloat) -> Layout { ... }
-static func before(_ view: UIView, by constant: CGFloat) -> Layout { ... }
-static func after(_ view: UIView, by constant: CGFloat) -> Layout { ... }
-
-addSubview(descriptionLabel, layout: .pin(safe: true), .below(titleLabel, by: 10))
-```
-
+- Layouts that return an array of constraints, with a single item. Inconvenient when needing to reference a single constraint.
 
