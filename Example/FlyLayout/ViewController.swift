@@ -13,11 +13,6 @@ class ViewController: UIViewController {
     override func loadView() {
         view = UIView()
         view.backgroundColor = .white
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        //        guard let view = view else { return }
 //        #colorLiteral(red: 0.10980392156862745, green: 0.23921568627450981, blue: 0.35294117647058826, alpha: 1)
 //        #colorLiteral(red: 0.8705882352941177, green: 0.4588235294117647, blue: 0.12156862745098039, alpha: 1)
 //        #colorLiteral(red: 0.2196078431372549, green: 0.6588235294117647, blue: 0.615686274509804, alpha: 1)
@@ -42,16 +37,17 @@ class ViewController: UIViewController {
         e.addSubview(UIView(background: #colorLiteral(red: 0.07058823529411765, green: 0.1568627450980392, blue: 0.22745098039215686, alpha: 1)), layout: .pin(10))
 
         let amount: CGFloat = 8
-        view.addSubview(UILabel(text: "Before"), layout: .before(a, by: amount), .centerY)
-        view.addSubview(UILabel(text: "After"), layout: .after(a, by: amount), .centerY)
-        view.addSubview(UILabel(text: "Above"), layout: .above(a, by: amount), .centerX)
-        view.addSubview(UILabel(text: "Below"), layout: .below(a, by: amount), .centerX)
+        view.addSubview(UILabel(text: "Before"), layout: .centerY, .before(a, by: amount))
+        view.addSubview(UILabel(text: "After"), layout: .centerY, .after(a, by: amount))
+        view.addSubview(UILabel(text: "Above"), layout: .centerX, .above(a, by: amount))
+        view.addSubview(UILabel(text: "Below"), layout: .centerX, .below(a, by: amount))
 
+        // might change these to an API that passes the anchor directly like this:
 //        view.addSubview(UILabel(text: "Leading"), layout: .align(to: a.leadingAnchor, by: amount), .centerY)
-        view.addSubview(UILabel(text: "Leading"), layout: .align(.leading, to: a, by: amount), .centerY)
-        view.addSubview(UILabel(text: "Trailing"), layout: .align(.trailing, to: a, by: amount), .centerY)
-        view.addSubview(UILabel(text: "Top"), layout: .align(.top, to: a, by: amount), .centerX)
-        view.addSubview(UILabel(text: "Bottom"), layout: .align(.bottom, to: a, by: amount), .centerX)
+        view.addSubview(UILabel(text: "Leading"), layout: .centerY, .align(.leading, to: a, by: amount))
+        view.addSubview(UILabel(text: "Trailing"), layout: .centerY, .align(.trailing, to: a, by: amount))
+        view.addSubview(UILabel(text: "Top"), layout: .centerX, .align(.top, to: a, by: amount))
+        view.addSubview(UILabel(text: "Bottom"), layout: .centerX, .align(.bottom, to: a, by: amount))
     }
 }
 
