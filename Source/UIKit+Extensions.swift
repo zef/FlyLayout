@@ -48,11 +48,11 @@ public extension UIView {
     //   and apply it by passing in an array, instead of duplicating the configuration inline
     //
     @discardableResult
-    func apply(layout layouts: Layout..., with view: UIView) -> [NSLayoutConstraint] {
-        return apply(layout: layouts, with: view)
+    func layout(_ layouts: Layout..., with view: UIView) -> [NSLayoutConstraint] {
+        return layout(layouts, with: view)
     }
     @discardableResult
-    func apply(layout layouts: [Layout], with view: UIView) -> [NSLayoutConstraint] {
+    func layout(_ layouts: [Layout], with view: UIView) -> [NSLayoutConstraint] {
         return layouts.flatMap { layout in
             layout.apply(to: self, with: view)
         }
