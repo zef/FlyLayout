@@ -90,7 +90,7 @@ Tradeoffs must be made between these, and I'm open to suggestions for improvemen
 
 - The `width` and `height` layouts are awkward when applied independently:
 ```Swift
-view.apply(layout: .height(30), with: view)
+view.layout(.height(30), with: view)
 ```
 
 In these cases, no second view reference is needed, so the `with` parameter does not make sense and is ignored.

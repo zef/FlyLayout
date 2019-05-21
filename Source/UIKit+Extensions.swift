@@ -75,7 +75,7 @@ public extension UIView {
     @discardableResult
     func addSubview(_ view: UIView, layout layouts: [Layout]) -> [NSLayoutConstraint] {
         addSubview(view, autoLayout: true)
-        return view.apply(layout: layouts, with: self)
+        return view.layout(layouts, with: self)
     }
 
     @discardableResult
@@ -85,7 +85,7 @@ public extension UIView {
     @discardableResult
     func insertSubview(_ view: UIView, at index: Int, layout layouts: [Layout]) -> [NSLayoutConstraint] {
         insertSubview(view, at: index, autoLayout: true)
-        return view.apply(layout: layouts, with: self)
+        return view.layout(layouts, with: self)
     }
 
     @discardableResult
@@ -95,7 +95,7 @@ public extension UIView {
     @discardableResult
     func insertSubview(_ view: UIView, aboveSubview siblingSubview: UIView, layout layouts: [Layout]) -> [NSLayoutConstraint] {
         insertSubview(view, aboveSubview: siblingSubview, autoLayout: true)
-        return view.apply(layout: layouts, with: self)
+        return view.layout(layouts, with: self)
     }
 
     @discardableResult
@@ -105,7 +105,7 @@ public extension UIView {
     @discardableResult
     func insertSubview(_ view: UIView, belowSubview siblingSubview: UIView, layout layouts: [Layout]) -> [NSLayoutConstraint] {
         insertSubview(view, belowSubview: siblingSubview, autoLayout: true)
-        return view.apply(layout: layouts, with: self)
+        return view.layout(layouts, with: self)
     }
 }
 
