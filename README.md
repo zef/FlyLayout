@@ -26,7 +26,9 @@ Centering subviews:
 .center, .centerX, .centerY
 
 // or to define an offset from the center:
-.center(x: -40, y:)
+.center(x: 10)
+.center(y: -40)
+.center(x: 10, y: -40)
 ```
 
 ## Advanced Usage
