@@ -2,6 +2,17 @@
 
 A Swift API for Auto Layout. Expressive, terse, and clear.
 
+## Demo
+
+Here's a quick example of the power and expressiveness that FlyLayout can provide.
+
+This entire complex layout is expressed in only 30 lines of code, yet it remains readable, understandable, and flexible.
+
+![Code example and screenshot](/FlyLayoutDemo.png?raw=true)
+
+You can try this out by opening `Example/FlyLayout.xcworkspace` yourself.
+
+
 ## Usage
 
 Add a subview, filling it entirely.
@@ -56,14 +67,9 @@ Layout.useSafeAreas = true
 view.addSubview(label, layout: .fillY)
 ```
 
-## Demo
+## Installation
 
-Here's a quick example of the power and expressiveness that FlyLayout can provide.
-
-![Code example and screenshot](/FlyLayoutDemo.png?raw=true)
-
-You can try this out by opening `Example/FlyLayout.xcworkspace` yourself.
-
+Nothing here yet... I've been sitting on this project for a while because I don't have this setup and documented properly, but I'm deciding to push it anyway and I would love to get this ready soon! 
 
 ## Design Goals
 
