@@ -56,6 +56,15 @@ Layout.useSafeAreas = true
 view.addSubview(label, layout: .fillY)
 ```
 
+## Demo
+
+Here's a quick example of the power and expressiveness that FlyLayout can provide.
+
+![Code example and screenshot](/FlyLayoutDemo.png?raw=true)
+
+You can try this out by opening `Example/FlyLayout.xcworkspace` yourself.
+
+
 ## Design Goals
 
 ### Practical:
