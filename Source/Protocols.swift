@@ -35,6 +35,7 @@ public struct Layout {
     public func apply(to view: UIView, with secondView: UIView) -> [NSLayoutConstraint] {
         let referenceView = implementation.customViewReference ?? secondView
         let constraints = implementation.constraints(for: view, with: referenceView)
+        constraints.forEach { $0.priority = priority }
         constraints.activate()
         return constraints
     }
@@ -52,4 +53,18 @@ public struct Layout {
         block()
         useSafeAreas = originalValue
     }
+
+    public var priority: UILayoutPriority = .required
+//    public func at(_ priority: UILayoutPriority) -> Layout {
+//        var layout = self
+//        layout.priority = priority
+//        return layout
+//    }
 }
+
+//infix operator |
+//func |(lhs: Layout, rhs: UILayoutPriority) -> Layout {
+//    var layout = lhs
+//    layout.priority = rhs
+//    return layout
+//}

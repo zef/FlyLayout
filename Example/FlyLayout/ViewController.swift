@@ -13,13 +13,6 @@ class ViewController: UIViewController {
     override func loadView() {
         view = UIView()
         view.backgroundColor = .white
-//        #colorLiteral(red: 0.10980392156862745, green: 0.23921568627450981, blue: 0.35294117647058826, alpha: 1)
-//        #colorLiteral(red: 0.8705882352941177, green: 0.4588235294117647, blue: 0.12156862745098039, alpha: 1)
-//        #colorLiteral(red: 0.2196078431372549, green: 0.6588235294117647, blue: 0.615686274509804, alpha: 1)
-//        #colorLiteral(red: 0.33725490196078434, green: 0.3803921568627451, blue: 0.7019607843137254, alpha: 1)
-//        #colorLiteral(red: 0.9215686274509803, green: 0.3215686274509804, blue: 0.5254901960784314, alpha: 1)
-//        #colorLiteral(red: 0.1843137254901961, green: 0.5254901960784314, blue: 0.5882352941176471, alpha: 1)
-
 
         let a = UIView(background: #colorLiteral(red: 0.8, green: 0.12156862745098039, blue: 0.10196078431372549, alpha: 1))
         let b = UIView(background: #colorLiteral(red: 0.12156862745098039, green: 0.615686274509804, blue: 0.3333333333333333, alpha: 1))
