@@ -64,7 +64,7 @@ Defining dimensions:
 
 Other options are available too, see the demo screenshot above for usage of `before`, `after`, `above`, `below`, and `align`.
 
-Or check out [`Definitions.swift`](source/Definitions.swift) for yourself.
+Or check out [`Definitions.swift`](Source/Definitions.swift) for yourself.
 
 ## Advanced Usage
 
@@ -104,8 +104,8 @@ Layouts can also be added through all of `UIKit`s standard `insertSubview` calls
 
 You can create your own custom layouts that can be passed into the layout calls. To do this:
 
-1. Implement a struct that conforms to `ConstraintProvider`, as in [`Layout.swift` ](source/Layout.swift).
-2. Add an extension to  `Layout` that wraps your `ConstraintProvider`, as in [`Definitions.swift`](source/Definitions.swift).
+1. Implement a struct that conforms to `ConstraintProvider`, as in [`Layout.swift` ](Source/Layout.swift).
+2. Add an extension to  `Layout` that wraps your `ConstraintProvider`, as in [`Definitions.swift`](Source/Definitions.swift).
 
 
 ## Installation
