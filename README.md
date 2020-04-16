@@ -19,6 +19,14 @@ Add a subview, filling it entirely.
 ```Swift
 view.addSubview(label, layout: .fill)
 ```
+Add a subview, filling in one dimension.
+```Swift
+view.addSubview(label, layout: .fillX)
+view.addSubview(label, layout: .fillY)
+
+// respecting safe areas are also configurable through functions like this:
+view.addSubview(label, layout: .fillY(safe: false))
+```
 
 To provide some spacing around the subview, use `.pin`.
 ```Swift
@@ -40,6 +48,18 @@ Centering subviews:
 .center(x: 10)
 .center(y: -40)
 .center(x: 10, y: -40)
+```
+
+Defining dimensions:
+```Swift
+// simple dimensions
+.width(10), .height(10)
+
+// or a convenience to define width and height together
+.square(10)
+
+// you can also use `width` and `height` referencing another view's anchor values:
+.width(equalTo: someView.widthAnchor)
 ```
 
 ## Advanced Usage
@@ -66,6 +86,23 @@ Or, explicitly control the value of the `useSafeAreas` global, which defines you
 Layout.useSafeAreas = true
 view.addSubview(label, layout: .fillY)
 ```
+
+### Assigning outside of `addSubview`
+
+So far, we've only been assigning constraints during the `addSubview` call. However, it's also possible to add constraints at a later time:
+```Swift
+// if `someView` is already in the view heirarchy, this would apply the constraints referencing `otherView`, where appropriate.
+someView.layout(.pin(10), .width(20), with: otherView)
+```
+Layouts can also be added through all of `UIKit`s standard `insertSubview` calls.
+
+### Extending with your own custom layouts
+
+You can create your own custom layouts that can be passed into the layout calls. To do this:
+
+1. Implement a struct that conforms to `ConstraintProvider`, as in `Layout.swift`
+2. Add an extension to  `Layout` that wraps your `ConstraintProvider`, as in `Definitions.swift` 
+
 
 ## Installation
 
@@ -113,5 +150,14 @@ view.layout(.height(30), with: view)
 In these cases, no second view reference is needed, so the `with` parameter does not make sense and is ignored.
 However, since other constraints do require a second view reference, I do not want to make that parameter an optional.
 
+Maybe I can work around it by making another Layout function that takes types that do not require a second view?
+
 - Layouts that return an array of constraints, with a single item. Inconvenient when needing to reference a single constraint.
 
+
+
+## Ideas/TODO
+
+
+- I have some unexplored ideas for defining constraint priority
+- The `when` conditions from [EasyPeasy](https://github.com/nakiostudio/EasyPeasy) look very cool and would probably work well here.

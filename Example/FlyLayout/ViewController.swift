@@ -35,14 +35,10 @@ class ViewController: UIViewController {
         view.addSubview(UILabel(text: "Above"), layout: .centerX, .above(a, by: amount))
         view.addSubview(UILabel(text: "Below"), layout: .centerX, .below(a, by: amount))
 
-        // might change these to an API that passes the anchor directly like this:
-//        view.addSubview(UILabel(text: "Leading"), layout: .align(to: a.leadingAnchor, by: amount), .centerY)
         view.addSubview(UILabel(text: "Leading"), layout: .centerY, .align(.leading, to: a, by: amount))
         view.addSubview(UILabel(text: "Trailing"), layout: .centerY, .align(.trailing, to: a, by: amount))
         view.addSubview(UILabel(text: "Top"), layout: .centerX, .align(.top, to: a, by: amount))
         view.addSubview(UILabel(text: "Bottom"), layout: .centerX, .align(.bottom, to: a, by: amount))
-
-//        view.addSubview(UILabel(text: "test"), layout: .height(<= a.heightAnchor))
     }
 }
 
