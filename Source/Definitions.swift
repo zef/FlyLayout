@@ -20,6 +20,8 @@ public extension Layout {
         return Layout(Width(equalTo: dimension, multiplier: multiplier, constant: constant))
     }
 
+    static func square(_ constant: CGFloat) -> Layout { return Layout(Square(constant)) }
+
     // MARK: Pinning
     static var fill: Layout { return Layout(Pin(x: 0, y: 0)) }
     static var fillX: Layout { return Layout(Pin(x: 0)) }

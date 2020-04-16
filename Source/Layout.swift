@@ -132,6 +132,17 @@ struct Width: ConstraintProvider {
     }
 }
 
+struct Square: ConstraintProvider {
+    let constant: CGFloat
+
+    init(_ constant: CGFloat) {
+        self.constant = constant
+    }
+
+    func constraints(for view: UIView, with secondView: UIView) -> [NSLayoutConstraint] {
+        return Width(constant).constraints(for: view, with: secondView) + Height(constant).constraints(for: view, with: secondView)
+    }
+}
 
 // provides a constraint that references a different view
 public struct Connection: ConstraintProvider {

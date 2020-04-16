@@ -21,11 +21,11 @@ class ViewController: UIViewController {
         let e = UIView(background: #colorLiteral(red: 0.9490196078431372, green: 0.8156862745098039, blue: 0.1411764705882353, alpha: 1))
 
         Layout.toSafeAreas {
-            view.addSubview(a, layout: .center, .width(180), .height(180))
-            view.addSubview(b, layout: .pin(top: 10, leading: 10), .width(100), .height(100))
-            view.addSubview(c, layout: .pin(top: 10, trailing: 10), .width(100), .height(100))
-            view.addSubview(d, layout: .pin(bottom: 10, leading: 10), .width(100), .height(100))
-            view.addSubview(e, layout: .pin(bottom: 10, trailing: 10), .width(100), .height(100))
+            view.addSubview(a, layout: .center, .width(180), .height(240))
+            view.addSubview(b, layout: .pin(top: 10, leading: 10), .square(100))
+            view.addSubview(c, layout: .pin(top: 10, trailing: 10), .square(100))
+            view.addSubview(d, layout: .pin(bottom: 10, leading: 10), .square(100))
+            view.addSubview(e, layout: .pin(bottom: 10, trailing: 10), .square(100))
         }
         e.addSubview(UIView(background: #colorLiteral(red: 0.07058823529411765, green: 0.1568627450980392, blue: 0.22745098039215686, alpha: 1)), layout: .pin(10))
 
@@ -41,6 +41,8 @@ class ViewController: UIViewController {
         view.addSubview(UILabel(text: "Trailing"), layout: .centerY, .align(.trailing, to: a, by: amount))
         view.addSubview(UILabel(text: "Top"), layout: .centerX, .align(.top, to: a, by: amount))
         view.addSubview(UILabel(text: "Bottom"), layout: .centerX, .align(.bottom, to: a, by: amount))
+
+//        view.addSubview(UILabel(text: "test"), layout: .height(<= a.heightAnchor))
     }
 }
 
