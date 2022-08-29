@@ -6,7 +6,7 @@
 //  Copyright © 2019 Zef Houssney. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 // Here we define the public interface for Layouts that are available.
 public extension Layout {

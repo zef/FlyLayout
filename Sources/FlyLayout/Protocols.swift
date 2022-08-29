@@ -6,7 +6,7 @@
 //  Copyright © 2019 Zef Houssney. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 // This is the basic building block of Layout implementations.
 // You can conform to this to provide your own Layout types.
